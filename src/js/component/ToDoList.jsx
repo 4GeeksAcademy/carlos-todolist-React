@@ -4,11 +4,11 @@ import Task from "../component/Task";
 
 const ToDoList = () => {
 
-    const [newTask, setNewTask] = useState ([]);
+    const [newTask, setNewTask] = useState ("");
     const [taskList, setTaskList] = useState([]);
 
     return (
-        <div className="container" >
+        <div className="container mt-5 w-100" >
             <input type="text" value={newTask} placeholder="Write your new task"
 				onChange={(event) => setNewTask(event.target.value)}
 
@@ -21,7 +21,7 @@ const ToDoList = () => {
 			/>
             {(taskList.length == 0) && <div>No tasks, add a task</div> }
             {taskList.map((tarea, indice)=> (<Task task={tarea} key={indice} onRemove={()=>{
-                
+                setTaskList(taskList.filter((_tarea, indiceBorrar)=>indice != indiceBorrar))
             }}/>))}
             <p>{taskList.length} item left</p>
         </div>
