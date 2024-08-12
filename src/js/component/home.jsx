@@ -9,6 +9,7 @@ import ToDoList from "./ToDoList";
 const Home = () => {
 	return (
 		<div className="text-center">
+			<p className="titulo">todos</p>
 			<ToDoList />
 		</div>
 	);
