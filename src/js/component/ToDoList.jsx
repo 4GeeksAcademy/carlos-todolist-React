@@ -1,11 +1,22 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Task from "../component/Task";
 
 
 const ToDoList = () => {
 
     const [newTask, setNewTask] = useState ("");
+    
     const [taskList, setTaskList] = useState([]);
+    
+    const loadTasks = async() => {
+        const response = await fetch("https://playground.4geeks.com/todo/users/cdalzate")
+        const data = await response.json();
+        setTaskList(data.todos)
+    }   
+
+    useEffect(()=>{
+        loadTasks();
+    } ,[])
 
     return (
         

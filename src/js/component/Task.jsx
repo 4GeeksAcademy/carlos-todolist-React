@@ -11,7 +11,7 @@ const Task = (props) => {
             onMouseLeave={()=>{
                 setIsHovered(false);
             }}>
-            <p className='p-2'>{props.task}</p>
+            <p className='p-2'>{props.task.label}</p>
             {(isHovered) && <span className="clickable" onClick={()=>{
                 props.onRemove()
             }}>X</span>}
